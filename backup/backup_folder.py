@@ -67,7 +67,9 @@ def daily_backup():
     ### the home folder where all backups are stored
     admin_home = '/volume1/homes/admin'
     ### the password for the admin user
-    password = 'DNA2015'
+
+    ### INPUT THE PASSWORD HERE
+    password = <THEPASSWORD>
 
     ######################
     ### LOCAL SETTINGS ###

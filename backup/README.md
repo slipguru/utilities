@@ -2,8 +2,6 @@ Hello everyone, I'm writing this message in english so that in the future it can
 
 I wrote a script which you can easily adapt to your needs to perform a backup of your folders on any remote machine that supports ssh and rsync. For the time being of course the machine will be the same for us all, and it is the NAS whose IP address is (at the moment) 10.251.61.6.
 
-I will attach the script itself to this message, later maybe I will devise a smarter way to preserve it (like putting it somewhere on a bitbucket of some sort).
-
 All you have to do is to put it somewhere in your filesystem (I suggest the folder /usr/local/bin/) and then add one or more lines to your crontab in order to activate the backup procedure. The crontab is edited using the following command:
 
 crontab -e
@@ -13,6 +11,10 @@ You do not have to be sudoer to edit it, you only need to have read permission o
 59 2 * * * python /usr/local/bin/backup_folder.py /shared/compbio-disk-data/shared/projects/ backups/compbio/shared-projects
 
 Every night at 2:59 AM it backs up the content of folder /shared/compbio-disk-data/shared/projects/. The backups can be found under /volume1/homes/admin/backups/compbio/shared-projects, there will be a number of folders named backup.i, with i ranging from 0 to 10. The higher i, the oldest the backup. So the latest snapshot is the one called backup.0.
+
+**IMPORTANT**: since this script is ending up on a public repository, I took
+away the password from the python file, since it's public. Before using it you
+should restore it (it should be around line 72 of the file).
 
 **VERY IMPORTANT**: note that the trailing slash in the source folder (in my case, /shared/compbio-disk-data/shared/projects/) is required, otherwise it creates another level of folders.
 
