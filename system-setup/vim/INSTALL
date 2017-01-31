@@ -1,0 +1,3 @@
+# For reasons, also add the following alias to your .bash_aliases
+
+alias tmux='tmux -2'
