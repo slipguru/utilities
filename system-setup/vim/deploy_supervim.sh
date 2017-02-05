@@ -23,9 +23,9 @@ echo -e ":map <C-h> :tabprevious <CR>\n" >> ~/.vimrc.last
 echo -e ":map <C-h> :tabnext <CR>\n" >> ~/.vimrc.last
 
 ### Add plugins
-echo -e "Plugin 'davidhalter/jedi-vim'\n" >> ~/.vimrc.plugins
-echo -e "Plugin 'scrooloose/nerdtree'\n" >> ~/.vimrc.plugins
-echo -e "Plugin 'vim-scripts/colorsupport.vim'\n" >> ~/.vimrc.plugins
+echo -e "Plugin 'davidhalter/jedi-vim'" >> ~/.vimrc.plugins
+echo -e "Plugin 'scrooloose/nerdtree'" >> ~/.vimrc.plugins
+echo -e "Plugin 'vim-scripts/colorsupport.vim'" >> ~/.vimrc.plugins
 
 echo "Installation complete. Don't forget to alias tmux='tmux -2'"
 echo "Also, the first time you launch vim, input command"
