@@ -16,7 +16,7 @@ def remote_move(src_, dst_, password):
     child.expect('assword:');
     child.sendline(password);
 
-    child.expect(pexpect.EOF)
+    # child.expect(pexpect.EOF)
 
 def remote_rm(target, password):
 
@@ -25,7 +25,7 @@ def remote_rm(target, password):
     child.expect('assword:');
     child.sendline(password);
 
-    child.expect(pexpect.EOF)
+    # child.expect(pexpect.EOF)
 
 def remote_copy(src_, dst_, password):
     """
@@ -38,7 +38,7 @@ def remote_copy(src_, dst_, password):
     child.expect('assword:');
     child.sendline(password);
 
-    child.expect(pexpect.EOF)
+    # child.expect(pexpect.EOF)
 
 def rsync(local_src, remote_dst, password):
     """
@@ -50,7 +50,7 @@ def rsync(local_src, remote_dst, password):
     child.expect('assword:');
     child.sendline(password);
 
-    child.expect(pexpect.EOF)
+    # child.expect(pexpect.EOF)
 
 def daily_backup():
 
