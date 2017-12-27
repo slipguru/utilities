@@ -1,7 +1,8 @@
 #!/bin/bash
 
-mkdir -p ~/projects
-cd ~/projects
+DIRNAME="projects"
+mkdir -p ~/$DIRNAME
+cd ~/$DIRNAME
 
 git clone https://github.com/timss/vimconf.git
 #git clone https://github.com/vim-scripts/colorsupport.vim.git
@@ -10,7 +11,7 @@ cd
 
 rm -f ~/.vimrc
 
-ln -s ~/projects/vimconf/.vimrc ~/.vimrc
+ln -s ~/$DIRNAME/vimconf/.vimrc ~/.vimrc
 
 vim
 
