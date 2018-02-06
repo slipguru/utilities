@@ -30,7 +30,7 @@ def create_log(remote_dst):
     os.write(
     fd,
     str.encode(
-        "Backup was completed successfully at {}".format(time.strftime("%H:%m:%S %d/%m/%Y"))
+        "Backup was completed successfully at {}".format(time.strftime("%H:%M:%S %d/%m/%Y"))
         )
     )
 
@@ -125,6 +125,10 @@ def daily_backup():
     # rsync -a --delete src/  dst/backup.0/
     print("Pushing latest snapshot...")
     rsync(local_src, remote_dst)
+    print("Done!")
+
+    print("Creating backup log...")
+    create_log(remote_dst)
     print("Done!")
 
     print("Finished.")
