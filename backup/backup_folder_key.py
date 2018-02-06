@@ -8,6 +8,9 @@ import subprocess
 
 import sys, os
 
+from tempfile import mkstemp
+import time
+
 user = 'admin'
 #host = 'compbio-nas'
 host = '10.251.61.6'
@@ -16,6 +19,26 @@ def remote_move(src_, dst_):
 
     ### Must suppress error
     subprocess.call('ssh {}@{} "mv {} {} 2> /dev/null"'.format(user, host, src_, dst_), shell=True);
+
+def create_log(remote_dst):
+
+    # Create tmp file
+    fd, tmp_file_path = mkstemp()
+
+    remote_file_name = "BACKUP_{}.log".format(time.strftime("%Y%m%d"))
+
+    os.write(
+    fd,
+    str.encode(
+        "Backup was completed successfully at {}".format(time.strftime("%H:%m:%S %d/%m/%Y"))
+        )
+    )
+
+    # Copy it in the remote folder
+    subprocess.call('scp {} {}@{}:{}/backup.0/{}'.format(tmp_file_path, user, host, remote_dst, remote_file_name), shell=True);
+
+    # Close the file
+    os.close(fd)
 
 
 def remote_rm(target):
